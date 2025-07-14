@@ -6,52 +6,62 @@ function setDarkMode(enabled) {
     document.body.classList.add("dark-mode");
     darkModeToggle.textContent = "☀️";
     darkModeToggle.setAttribute("aria-pressed", "true");
+    darkModeToggle.setAttribute("aria-label", "Désactiver le mode sombre");
     localStorage.setItem("darkMode", "enabled");
   } else {
     document.body.classList.remove("dark-mode");
     darkModeToggle.textContent = "🌙";
     darkModeToggle.setAttribute("aria-pressed", "false");
+    darkModeToggle.setAttribute("aria-label", "Activer le mode sombre");
     localStorage.setItem("darkMode", "disabled");
   }
 }
 
-// Charger la préférence au chargement
+// Charger la préférence enregistrée
 setDarkMode(localStorage.getItem("darkMode") === "enabled");
 
-// Écouteur pour toggle
+// Écouteur sur le bouton
 darkModeToggle.addEventListener("click", () => {
   const isDark = document.body.classList.contains("dark-mode");
   setDarkMode(!isDark);
 });
 
+
 // ===== ANIMATION MACHINE À ÉCRIRE =====
 const typingText = document.getElementById("typingText");
 const fullName = "Thomas Avronsart";
 const subtitle = " — Développeur Web en alternance";
-
 let idx = 0;
-let subtitleAdded = false;
+let subtitleIdx = 0;
 
-function typeWriter() {
+function typeFullName() {
   if (idx < fullName.length) {
     typingText.textContent += fullName.charAt(idx);
     idx++;
-    setTimeout(typeWriter, 150);
-  } else if (!subtitleAdded) {
-    subtitleAdded = true;
-    typingText.textContent += subtitle;
+    setTimeout(typeFullName, 150);
+  } else {
+    setTimeout(typeSubtitle, 300);
   }
 }
-// Reset texte et lancer animation
+
+function typeSubtitle() {
+  if (subtitleIdx < subtitle.length) {
+    typingText.textContent += subtitle.charAt(subtitleIdx);
+    subtitleIdx++;
+    setTimeout(typeSubtitle, 80);
+  }
+}
+
+// Démarrer l'animation
 typingText.textContent = "";
-typeWriter();
+typeFullName();
+
 
 // ===== FADE IN SECTIONS AU SCROLL =====
 const sections = document.querySelectorAll("main section");
 
 function checkSections() {
   const triggerPoint = window.innerHeight * 0.85;
-
   sections.forEach(section => {
     const top = section.getBoundingClientRect().top;
     if (top < triggerPoint) {
@@ -59,8 +69,10 @@ function checkSections() {
     }
   });
 }
+
 window.addEventListener("scroll", checkSections);
 window.addEventListener("load", checkSections);
+
 
 // ===== FORMULAIRE CONTACT =====
 const form = document.getElementById("contactForm");
@@ -69,7 +81,7 @@ const formMessage = document.getElementById("formMessage");
 form.addEventListener("submit", e => {
   e.preventDefault();
   formMessage.textContent = "";
-  
+
   const name = form.name.value.trim();
   const email = form.email.value.trim();
   const message = form.message.value.trim();
@@ -80,7 +92,6 @@ form.addEventListener("submit", e => {
     return;
   }
 
-  // Simple validation email regex
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(email)) {
     formMessage.textContent = "Merci de saisir un email valide.";
@@ -96,12 +107,13 @@ form.addEventListener("submit", e => {
 
   formMessage.textContent = "Envoi en cours…";
 
-  // Simuler envoi
+  // Simuler un envoi
   setTimeout(() => {
     formMessage.textContent = "Merci pour votre message !";
     form.reset();
   }, 1500);
 });
+
 
 // ===== BOUTON RETOUR EN HAUT =====
 const backToTop = document.getElementById("backToTop");
@@ -117,3 +129,4 @@ window.addEventListener("scroll", () => {
 backToTop.addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
+

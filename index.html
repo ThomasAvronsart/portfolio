@@ -5,16 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Portfolio - Thomas Avronsart</title>
 
-  <!-- Google Fonts: Poppins -->
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
 
   <!-- CSS -->
   <link rel="stylesheet" href="style.css" />
+
+  <!-- Meta description pour le SEO -->
+  <meta name="description" content="Portfolio de Thomas Avronsart, développeur web front-end en alternance. Découvrez ses projets, ses compétences et comment le contacter." />
 </head>
+
 <body>
   <header>
     <h1 id="typingText">Thomas Avronsart</h1>
-    <p>Développeur Web en alternance</p>
+    <p>Développeur Web Front-End en formation Bac+3</p>
 
     <button 
       id="darkModeToggle" 
@@ -33,36 +37,58 @@
   </header>
 
   <main>
+    <!-- À propos -->
     <section id="apropos" tabindex="-1">
       <h2>À propos</h2>
       <p>
-        Je suis un développeur web junior passionné, à la recherche d'une alternance pour approfondir mes compétences en HTML, CSS, JavaScript et développement full-stack. J’aime résoudre des problèmes et apprendre en construisant.
+        Je m'appelle <strong>Thomas Avronsart</strong> et je suis actuellement en formation Bac+3 Développement Web Front-End à <strong>Cloud Campus</strong>. 
+        Je cherche une <strong>alternance</strong> pour développer mes compétences techniques tout en contribuant à des projets concrets en entreprise.
+      </p>
+      <p>
+        J’ai appris à créer des sites web en utilisant <strong>HTML, CSS et JavaScript</strong>, et je découvre également <strong>PHP</strong> et <strong>React</strong> pour devenir plus polyvalent.
+        J’ai réalisé plusieurs projets personnels, comme ce portfolio ou une application de ToDo List, pour m’exercer à structurer mon code, gérer le DOM et rendre mes interfaces responsives.
+      </p>
+      <p>
+        Avant de me lancer dans le développement web, j’ai travaillé dans différents secteurs, ce qui m’a appris la rigueur, l’autonomie, la gestion du stress et le travail en équipe.
+        Aujourd’hui, je suis motivé, curieux et prêt à m’investir pleinement dans une entreprise pour progresser et évoluer dans ce nouveau métier qui me passionne.
       </p>
     </section>
 
+    <!-- Projets -->
     <section id="projets" tabindex="-1">
       <h2>Projets</h2>
 
       <article class="projet" tabindex="0">
         <h3>Portfolio personnel</h3>
-        <p>Site responsive avec HTML, CSS, et JavaScript. Il présente mes projets et mes liens professionnels.</p>
+        <p>
+          Mon site personnel réalisé en HTML, CSS et JavaScript. Il présente mon parcours, mes projets et mes liens professionnels.
+        </p>
+        <p><strong>Technologies :</strong> HTML, CSS, JavaScript</p>
+        <p><strong>Ce que j’ai appris :</strong> responsive design, organisation du code, hébergement via GitHub Pages</p>
+        <a href="https://thomasavronsart.github.io/portfolio/" target="_blank" rel="noopener noreferrer">Voir le site</a>
         <a href="https://github.com/ThomasAvronsart/portfolio" target="_blank" rel="noopener noreferrer">Voir le code</a>
       </article>
 
       <article class="projet" tabindex="0">
         <h3>ToDo List</h3>
-        <p>Application web permettant d’ajouter, compléter et supprimer des tâches. Elle inclut un mode sombre et utilise le localStorage pour conserver les données.</p>
+        <p>
+          Application web permettant d’ajouter, compléter et supprimer des tâches. Elle inclut un mode sombre et sauvegarde les données via localStorage.
+        </p>
+        <p><strong>Technologies :</strong> HTML, CSS, JavaScript, localStorage</p>
+        <p><strong>Ce que j’ai appris :</strong> gestion du DOM, événements JS, persistance des données localement</p>
         <a href="https://thomasavronsart.github.io/todolist/" target="_blank" rel="noopener noreferrer">Voir le projet</a>
         <a href="https://github.com/ThomasAvronsart/todolist" target="_blank" rel="noopener noreferrer">Voir le code</a>
       </article>
     </section>
 
+    <!-- Contact -->
     <section id="contact" tabindex="-1">
       <h2>Contact</h2>
 
       <p>Email : <a href="mailto:thomas.16075@gmail.com">thomas.16075@gmail.com</a></p>
       <p>LinkedIn : <a href="https://www.linkedin.com/in/thomas-avronsart-299405357/" target="_blank" rel="noopener noreferrer">linkedin.com/in/thomas-avronsart</a></p>
       <p>GitHub : <a href="https://github.com/ThomasAvronsart" target="_blank" rel="noopener noreferrer">github.com/ThomasAvronsart</a></p>
+      <p>📄 <a href="cv-thomas-avronsart.pdf" download>Télécharger mon CV</a></p>
 
       <form id="contactForm" novalidate aria-describedby="formMessage" aria-live="polite">
         <label for="name">Nom :</label>
@@ -86,6 +112,6 @@
     <p>&copy; 2025 Thomas Avronsart - Portfolio Développeur Web</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
